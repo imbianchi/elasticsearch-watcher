@@ -27,10 +27,9 @@ def watcher():
             'systemctl restart elasticsearch', 'Reconnecting...', True)
 
         if outputRestartElastic.returncode != 0:
-            # log success or not here
             syslog.syslog(syslog.LOG_ERR,
-                      '[elasticsearch-watcher] - Elasticsearch not restarted! Sending e-mails...')
-            
+                          '[elasticsearch-watcher] - Elasticsearch not restarted! Sending e-mails...')
+
             errorLog()
             sendErrorEmails()
         else:
